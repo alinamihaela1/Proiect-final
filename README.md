@@ -21,4 +21,14 @@ Am adăugat un utilizator nou, prin secțiunea Body-raw din Postman folosind doc
 
 
 
-3. 
+3. Autentificare utilizator
+   
+   Metoda HTTP pentru solicitare: POST
+![Screenshot 2025-03-27 185108](https://github.com/user-attachments/assets/3533fc98-f393-4f1a-a2f1-d0a9ce381850)
+
+Teste JavaScript
+![Screenshot 2025-03-27 185740](https://github.com/user-attachments/assets/aa75148e-e3e8-4ab5-b0c4-64192b127d76)
+![Screenshot 2025-03-27 185820](https://github.com/user-attachments/assets/f67c24b7-739c-4e93-a3c9-7485a2daffce)
+
+
+

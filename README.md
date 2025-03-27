@@ -15,13 +15,17 @@ Teste efectuate
 
 
 
-2. Înregistrare utilizator
+2.  Înregistrare utilizator
+
+   
    Metoda HTTP pentru solicitare: POST
+
+   
 Am adăugat un utilizator nou, prin secțiunea Body-raw din Postman folosind documentația API.
 
 
 
-3. Autentificare utilizator
+4. Autentificare utilizator
    
    Metoda HTTP pentru solicitare: POST
 ![Screenshot 2025-03-27 185108](https://github.com/user-attachments/assets/3533fc98-f393-4f1a-a2f1-d0a9ce381850)
@@ -31,4 +35,52 @@ Teste JavaScript
 ![Screenshot 2025-03-27 185820](https://github.com/user-attachments/assets/f67c24b7-739c-4e93-a3c9-7485a2daffce)
 
 
+4. Profil ultilizator
+
+   
+  Metoda HTTP pentru solicitare: GET
+
+
+  5. Actualizare profil
+  
+      
+Metoda HTTP pentru solicitare: PATCH
+
+   ![Screenshot 2025-03-27 190452](https://github.com/user-attachments/assets/8002ea65-0f1c-4a48-9e41-938a6b54bb6b)
+
+
+Teste JavaScript
+![Screenshot 2025-03-27 190650](https://github.com/user-attachments/assets/5c454d4f-03e4-4746-8469-103ae47ad828)
+![Screenshot 2025-03-27 190710](https://github.com/user-attachments/assets/0d2b5280-19ac-4285-b35e-d5c925e63532)
+![Screenshot 2025-03-27 190730](https://github.com/user-attachments/assets/4aba954d-e102-4fa4-9c44-4390065a5f1c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 

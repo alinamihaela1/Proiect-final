@@ -13,6 +13,19 @@ Teste efectuate
 
 1. Am folosit "health check" în Postman pentru a verifica dacă o aplicație este activă și funcționează corect.
 
+![Screenshot 2025-03-28 115225](https://github.com/user-attachments/assets/72166e5a-ca1f-47d8-9e71-648337edac50)
+
+Apoi, am scris un test si răspunsul a fost FAILED.
+Codul testului verifică corect codul de status al răspunsului.
+API-ul returnează un cod de status 200 OK, așa cum se așteaptă testul, însă Postman indică faptul că testul a eșuat, în ciuda faptului că toatele datele sunt corecte.
+
+![Screenshot 2025-03-28 115412](https://github.com/user-attachments/assets/474d6996-1609-4926-b9ad-de4646f8bd90)
+
+
+
+
+
+
 
 
 2.  Înregistrare utilizator

@@ -28,17 +28,28 @@ API-ul returnează un cod de status 200 OK, așa cum se așteaptă testul, îns�
 
 
 
+
+
+
+
 2.  Înregistrare utilizator
 
    
    Metoda HTTP pentru solicitare: POST
 
    
-Am adăugat un utilizator nou, prin secțiunea Body-raw din Postman folosind documentația API.
+   Am adăugat un utilizator nou, prin secțiunea Body-raw din Postman folosind documentația API.
 
 
 
-4. Autentificare utilizator
+
+
+
+
+
+
+
+3. Autentificare utilizator
    
    Metoda HTTP pentru solicitare: POST
 ![Screenshot 2025-03-27 185108](https://github.com/user-attachments/assets/3533fc98-f393-4f1a-a2f1-d0a9ce381850)
@@ -48,10 +59,29 @@ Teste JavaScript
 ![Screenshot 2025-03-27 185820](https://github.com/user-attachments/assets/f67c24b7-739c-4e93-a3c9-7485a2daffce)
 
 
+
+
+
+
+
+
+
+
+
 4. Profil ultilizator
 
    
   Metoda HTTP pentru solicitare: GET
+
+
+
+
+
+
+
+
+
+
 
 
   5. Actualizare profil
@@ -68,6 +98,26 @@ Teste JavaScript
 ![Screenshot 2025-03-27 190730](https://github.com/user-attachments/assets/4aba954d-e102-4fa4-9c44-4390065a5f1c)
 
 
+
+
+
+
+
+
+
+
+
+
+
+6. Creare notiță
+   
+   Metoda HTTP pentru solicitare: POST
+![Screenshot 2025-03-28 140028](https://github.com/user-attachments/assets/28ab58a0-ebce-4a91-87cd-1b1d6110d362)
+
+Teste JavaScript
+![Screenshot 2025-03-28 140226](https://github.com/user-attachments/assets/f17675d2-9546-43ff-8c50-9dd956f96f17)
+![Screenshot 2025-03-28 140311](https://github.com/user-attachments/assets/a5187311-8226-455a-b743-96a861eb1a84)
+![Screenshot 2025-03-28 140327](https://github.com/user-attachments/assets/6e98591a-bc01-4450-a99a-811a88eda331)
 
 
 

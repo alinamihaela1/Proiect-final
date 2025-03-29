@@ -149,9 +149,17 @@ Teste JavaScript
 
 
 
+9. Preluare note
+    
+  Metoda HTTP pentru solicitare: GET
+
+  ![Screenshot 2025-03-29 194952](https://github.com/user-attachments/assets/2051aed6-7f5c-4867-b453-c5df9518cb80)
 
 
+Teste JavaScript
+![Screenshot 2025-03-29 195035](https://github.com/user-attachments/assets/d357462e-faa6-4017-be05-f9cb50025be2)
 
+![Screenshot 2025-03-29 195059](https://github.com/user-attachments/assets/aa5d2a50-57ec-408a-a989-355c7cc1db1d)
 
 
 

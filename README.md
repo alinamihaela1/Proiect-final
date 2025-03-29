@@ -109,14 +109,14 @@ Teste JavaScript
 
 
 
+6. Stergere utlizator
 
 
 
 
 
 
-
-6. Creare notiță
+7. Creare notiță
    
    Metoda HTTP pentru solicitare: POST
 ![Screenshot 2025-03-28 140028](https://github.com/user-attachments/assets/28ab58a0-ebce-4a91-87cd-1b1d6110d362)
@@ -130,14 +130,22 @@ Teste JavaScript
 
 
 
+8. Creare notă
+
+   Am trimis o cerere POST, pentru a crea o notă nouă. Am furnizat datele necesare în corpul cererii, iar servărul a răspuns cu un cod de stare 200.
+
+     Metoda HTTP pentru solicitare: POST
+
+![Screenshot 2025-03-29 194423](https://github.com/user-attachments/assets/d3b139de-112f-4ad9-ac1f-89fdf66414a8)
 
 
--. 
+Teste JavaScript
 
+![Screenshot 2025-03-29 194519](https://github.com/user-attachments/assets/87227004-5199-4f13-a19a-8ca8de6d0e76)
 
+![Screenshot 2025-03-29 194555](https://github.com/user-attachments/assets/91ba1d95-7516-4ccf-8551-471bea3a1a37)
 
-
-
+![Screenshot 2025-03-29 194620](https://github.com/user-attachments/assets/a3af8ded-b00b-4fd2-a994-d0dd85d37a70)
 
 
 

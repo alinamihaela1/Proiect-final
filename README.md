@@ -163,7 +163,19 @@ Teste JavaScript
 
 
 
+10. Căutare notă cu ID
+    
+    Am trimis o cerere pentru a prelua o notă specifică. identificată prin ID-ul ei.
+    
+      Metoda HTTP pentru solicitare: GET
 
+![Screenshot 2025-03-29 195437](https://github.com/user-attachments/assets/a3c81119-c30a-4799-92c7-344f2ac2760b)
+
+
+Teste JavaSript
+![Screenshot 2025-03-29 195456](https://github.com/user-attachments/assets/aa4f352e-d80e-46fd-9160-dca499061954)
+
+![Screenshot 2025-03-29 195510](https://github.com/user-attachments/assets/c1da3299-bc66-464c-b019-fa1119377f92)
 
 
 

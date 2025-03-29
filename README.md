@@ -70,13 +70,20 @@ Teste JavaScript
 
 4. Profil ultilizator
 
-   
-  Metoda HTTP pentru solicitare: GET
+   Am trimis o cerere GET, pentru a prealua informații despre utilizator.
 
 
+   Metoda HTTP pentru solicitare: GET
+![Screenshot 2025-03-29 193445](https://github.com/user-attachments/assets/ca2b228f-4a89-4052-99e7-513a3240b6d9)
 
 
+Teste JavaScript
 
+![Screenshot 2025-03-29 193639](https://github.com/user-attachments/assets/03b22084-437c-4fb3-aaa8-d2df823c3385)
+
+![Screenshot 2025-03-29 193743](https://github.com/user-attachments/assets/839b0b53-0b2b-4c03-9498-1a3a8ba2c6f8)
+
+![Screenshot 2025-03-29 193801](https://github.com/user-attachments/assets/82128877-20f2-4792-b789-d7c748895dec)
 
 
 

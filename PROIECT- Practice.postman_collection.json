@@ -7,39 +7,49 @@
 	},
 	"item": [
 		{
-			"name": "user registration",
+			"name": "health-check",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.test(\"Status code is 200\", function (){\r",
+							"    pm.response.to.have.status(200)\r",
+							")\r",
+							"}"
 						],
 						"type": "text/javascript",
 						"packages": {}
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"alina\",\r\n    \"email\":\"alina@yahoo.com\",\r\n    \"password\": \"qazXSW@13\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
 						}
-					}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
 				},
 				"url": {
-					"raw": "https://practice.expandtesting.com/notes/app/users/register",
+					"raw": "https://practice.expandtesting.com/notes/api/health-check",
 					"protocol": "https",
 					"host": [
 						"practice",
@@ -48,7 +58,147 @@
 					],
 					"path": [
 						"notes",
-						"app",
+						"api",
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user registration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code should be 201 or 400\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 400]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should be JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\").to.include(\"application/json;  charset=utf-8\");\r",
+							"pm.expect(pm.response.json()).to.be.an('object');\r",
+							"\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response should contain success field\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"success\");\r",
+							"});\r",
+							"\r",
+							"if (jsonData.success === false) {\r",
+							"    pm.test(\"Error message should explain why registration failed\", function () {\r",
+							"        pm.expect(jsonData).to.have.property(\"message\");\r",
+							"        console.log(\"Registration Error:\", jsonData.message);\r",
+							"    });\r",
+							"\r",
+							"} else {\r",
+							"    pm.test(\"Registration should return a valid user TO\", function() {\r",
+							"        pm.test(\"Status code should be 201 or 400\", function() {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 400]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should be JSON\", function() {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    \r",
+							"\r",
+							"    if (jsonData.success === false) {\r",
+							"        pm.test(\"Error message should explain why registration failed\", function() {\r",
+							"            pm.expect(jsonData).to.have.property(\"message\");\r",
+							"            console.log(\"Registration Error:\", jsonData.message);\r",
+							"        });\r",
+							"    } else {\r",
+							"        pm.test(\"Registration should return a valid user TO\", function() {\r",
+							"            // Adaugă codul de test aici, de exemplu:\r",
+							"            pm.expect(jsonData).to.have.property(\"user\");\r",
+							"            pm.expect(jsonData.user).to.have.property(\"id\");\r",
+							"            pm.expect(jsonData.user).to.have.property(\"username\");\r",
+							"        });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"    pm.test(\"Registration should return a valid user ID\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"data\");\r",
+							"    pm.expect(jsonData.data).to.have.property(\"id\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Generare UUID pentru a crea un e-mail unic\r",
+							"const uuid = () => {\r",
+							"    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\r",
+							"        var r = Math.random() * 16 | 0,\r",
+							"            v = c === 'x' ? r : (r & 0x3 | 0x8);\r",
+							"        return v.toString(16);\r",
+							"    });\r",
+							"};\r",
+							"\r",
+							"// Salvăm un e-mail unic pentru testare\r",
+							"pm.variables.set(\"randomEmail\", 'testuser_${uuid()}@example.com');\r",
+							"\r",
+							"console.log(\"Email generat pentru testare:\", pm.variables.get(\"randomEmail\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "x-auth-token",
+						"value": "67e5385e38f0070286de2049",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"alina100\",\r\n    \"email\":\"fdd@yahoo.com\",\r\n    \"password\":\"Test@123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/users/register",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
 						"users",
 						"register"
 					]
@@ -57,21 +207,49 @@
 			"response": []
 		},
 		{
-			"name": "health-check",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
 			"name": "user login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm. response.to.have.status(200);\r",
+							"});\r",
+							"console.log (\"Post-response script a fost executat\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"testVar\", \"valoare_test\");\r",
+							"console.log(\"Pre-request script a fost executat\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "acbf6dfc235649378d26642065741c79850a2815c37840be88951f86354e8b26",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"mihaelaaaaaa@yahoo.com\"\r\n    \"password\":\"qazXSW@13\"\r\n}",
+					"raw": "{\r\n    \"email\": \"999999@yahoo.com\",\r\n    \"password\": \"qazXSW@13\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,9 +276,101 @@
 		},
 		{
 			"name": "users profile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Verificăm dacă există un token de autentificare\r",
+							"if (!pm.environment.get(\"authToken\")) {\r",
+							"    console.warn(\"⚠️ Nu există token de autentificare. Asigură-te că user-ul este logat!\");\r",
+							"} else {\r",
+							"    console.log(\"✅ Token de autentificare găsit:\", pm.environment.get(\"authToken\"));\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code should be 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should be JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json;charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Response should contain success field\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"success\");\r",
+							"    pm.expect(jsonData.success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Profile response should contain user data\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"data\");\r",
+							"    pm.expect(jsonData.data).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData.data).to.have.property(\"name\");\r",
+							"    pm.expect(jsonData.data).to.have.property(\"email\");\r",
+							"    pm.expect(jsonData.data).to.have.property(\"phone\");\r",
+							"    pm.expect(jsonData.data).to.have.property(\"company\");\r",
+							"});\r",
+							"\r",
+							"console.log(\"Profil utilizator:\", jsonData.data);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "055c99988ded4814b0e33ab45cfedade5a329fe8ad114cbd8f03b165e07da9f8",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/users/profile",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"users",
+						"profile"
+					]
+				}
 			},
 			"response": []
 		},
@@ -180,6 +450,169 @@
 						"delete-account"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new note",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Generați un titlu unic\r",
+							"const timestamp = Date.now();\r",
+							"const noteTitle = `Note ${timestamp}`;\r",
+							"\r",
+							"// Generați o descriere aleatorie\r",
+							"const noteDescription = This is a test note created at ${timestamp};\r",
+							"\r",
+							"// Setați variabilele Postman pentru a fi folosite în Body\r",
+							"pm.environment.set(\"noteTitle\", noteTitle);\r",
+							"pm.environment.set(\"noteDescription\", noteDescription);\r",
+							"\r",
+							"// Afișați variabilele în consolă (pentru debugging)\r",
+							"console.log(\"Note Title:\", noteTitle);\r",
+							"console.log(\"Note Description:\", noteDescription);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parsează răspunsul JSON\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Verifică codul de stare\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Verifică câmpul \"success\"\r",
+							"pm.test(\"Success is true\", function () {\r",
+							"  pm.expect(response.success).to.be.true;\r",
+							"});\r",
+							"\r",
+							"// Verifică mesajul\r",
+							"pm.test(\"Message is 'Note successfully created'\", function () {\r",
+							"  pm.expect(response.message).to.eql(\"Note successfully created\");\r",
+							"});\r",
+							"\r",
+							"// Verifică prezența câmpului \"data\"\r",
+							"pm.test(\"Response contains data\", function () {\r",
+							"  pm.expect(response).to.have.property(\"data\");\r",
+							"});\r",
+							"\r",
+							"// Salvează ID-ul notei create pentru teste ulterioare\r",
+							"pm.environment.set(\"noteId\", response.data.id);\r",
+							"\r",
+							"// Verificari ale datelor returnate\r",
+							"pm.test(\"Data types are correct\", function () {\r",
+							"  pm.expect(response.data.id).to.be.a(\"string\");\r",
+							"  pm.expect(response.data.title).to.be.a(\"string\");\r",
+							"  pm.expect(response.data.description).to.be.a(\"string\");\r",
+							"  pm.expect(response.data.category).to.be.a(\"string\");\r",
+							"  pm.expect(response.data.completed).to.be.a(\"boolean\");\r",
+							"});\r",
+							"\r",
+							"// Afișează ID-ul notei în consolă\r",
+							"console.log(\"Note ID:\", response.data.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "055c99988ded4814b0e33ab45cfedade5a329fe8ad114cbd8f03b165e07da9f8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "055c99988ded4814b0e33ab45cfedade5a329fe8ad114cbd8f03b165e07da9f8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Meeting notes\",\r\n    \"description\": \"Disscution\",\r\n    \"category\": \"Home\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/notes",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all notes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get a note by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "055c99988ded4814b0e33ab45cfedade5a329fe8ad114cbd8f03b165e07da9f8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://practice.expandtesting.com/notes/api/notes/67e4561d38f0070286de07e0",
+					"protocol": "https",
+					"host": [
+						"practice",
+						"expandtesting",
+						"com"
+					],
+					"path": [
+						"notes",
+						"api",
+						"notes",
+						"67e4561d38f0070286de07e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

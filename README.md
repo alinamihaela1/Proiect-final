@@ -41,8 +41,14 @@ API-ul returnează un cod de status 200 OK, așa cum se așteaptă testul, îns�
    Am adăugat un utilizator nou, prin secțiunea Body-raw din Postman folosind documentația API.
 
 
+![Screenshot 2025-04-02 203633](https://github.com/user-attachments/assets/e255b813-0bee-4354-96d8-ebde186bdaaa)
 
 
+Teste JavaScript
+
+![Screenshot 2025-04-02 203723](https://github.com/user-attachments/assets/ee6ca1e2-e875-4f7f-867f-06fab9ff296f)
+
+![Screenshot 2025-04-02 203740](https://github.com/user-attachments/assets/86474239-0c67-41ef-8154-5e1e3b038344)
 
 
 

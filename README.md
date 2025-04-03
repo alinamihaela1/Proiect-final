@@ -189,6 +189,7 @@ Teste JavaSript
 
 
 Concluzii:
+
 În concluzie, am testat un flux de gestionare a utilizatorilor: înregistrare, obținere profil și actualizare, validând răspunsurile API prin scripturi și verificând dacă datele sunt corecte.
 
 Am actualizat datele unui profil de utilizator în care au fost actualizate cu succes, și am creat notițe.

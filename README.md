@@ -187,16 +187,23 @@ Teste JavaSript
 
 
 Concluzii:
-În concluzie, am testat un flux de gestionare a utilizatorilor: înregistrare, obținere profil și actualizare, validând răspunsurile API prin scripturi și verificând dacă datele sunt corecte. 
+În concluzie, am testat un flux de gestionare a utilizatorilor: înregistrare, obținere profil și actualizare, validând răspunsurile API prin scripturi și verificând dacă datele sunt corecte.
+
 Am actualizat datele unui profil de utilizator în care au fost actualizate cu succes, și am creat notițe.
+
 Au fost create teste pentru a verifica funcționalitate API-ului, aceste teste fiind scrise în JavaScript.
+
 Teste au acoperit un flux complex de gestionare a utilizatorilor, de la înregistrare până la ștergerea contului.
+
 S-au folost scripturi pentru a valida răspunsurile API. Aceste scripturi au verificat, codurile de stare HTTP, formatul datelor,prezența anumitor câmpuri și valorile acestora.
+
 Teste au trecut cu succes, cu excepția celui de mai jos unde am folosit "health check"  pentru a verifica dacă aplicația este activă și funcționează corect. API-ul a returnat un cod de status 200 OK, așa cum se așteapta testul, însă Postman indică faptul că testul a eșuat, în ciuda faptului că toatele datele sunt corecte.
 
 
 
+![Screenshot 2025-04-03 125843](https://github.com/user-attachments/assets/1c491073-ef79-4907-b01b-280b0761eba7)
 
+![Screenshot 2025-04-03 125906](https://github.com/user-attachments/assets/bcc3609c-6663-429f-8988-3e843f3dbc4b)
 
 
 

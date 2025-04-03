@@ -2,6 +2,7 @@
 Acest proiect este destinat testării API-urilor folosind Postman. Scopul principal este verificarea funcționalităților de autentificare, gestionare a utilizatorilor și manipulare a notițelor într-o aplicație, dar și folosirea cunoștințelor dobândite prin cursul de testare și de a le pune în practică. 
 
 Aplicația testată : https://practice.expandtesting.com/#google_vignette
+
 API docs: https://practice.expandtesting.com/notes/api/api-docs/
 
 Instrumente folosite :Postman

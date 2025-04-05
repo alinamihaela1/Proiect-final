@@ -231,7 +231,7 @@ De exemplu, am consultat documentația Swagger-Notes API Documentation și, doar
 
 De asemenea, singurele răspunsuri documentate sunt 201 și 400, însă, în practică, am observat că există și altele, cum ar fi 409, care nu sunt menționate.
 
-Un alt exemplu de bug sau îmbunătățire ar fi faptul că, atunci când toate cele trei câmpuri conțin date invalide, eroarea returnată se referă doar la primul câmp care nu trece validările. În loc ca mesajul de eroare să fie sugestiv și să indice clar că toate cele trei câmpuri necesită corectare, utilizatorul primește erori pe rând, pentru fiecare câmp, începând cu numele de utilizator, continuând cu email-ul și, la final, parola, ceea ce poate fi destul de frustrant.
+Un alt exemplu de bug sau îmbunătățire ar fi faptul că, atunci când toate cele trei câmpuri conțin date invalide, eroarea returnată se referă doar la primul câmp care nu trece validările. În loc ca mesajul de eroare să fie sugestiv și să indice clar că toate cele trei câmpuri necesită corectare, utilizatorul primește erori pe rând, pentru fiecare câmp, începând cu numele de utilizator, continuând cu email-ul și, la final, parola.
 
 
 ![Screenshot 2025-04-05 202249](https://github.com/user-attachments/assets/60f64490-2d43-4948-8799-363de11c675f)
